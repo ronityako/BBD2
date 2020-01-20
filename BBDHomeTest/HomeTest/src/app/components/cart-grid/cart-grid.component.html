@@ -1,0 +1,26 @@
+<table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Description</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of cartProducts">
+        <td>{{prod.name}}</td>
+        <td>{{prod.description}}</td>
+        <td>{{prod.unitPrice}}</td>
+        <td>{{prod.quantity}}</td>
+      </tr>
+    </tbody>
+</table>
+
+<div id="total">
+  <span>Total:</span>
+  <span>{{total}}</span>
+</div>
+<button (click)="showPopup=true">Add Product</button>
+<app-user-add-prod *ngIf="showPopup" (productAdded)="addToTable($event)"></app-user-add-prod>
+  
